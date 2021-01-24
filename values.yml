@@ -1,0 +1,33 @@
+GitRepo:
+  name: fooGitRepo
+  gitProvider: github
+  path: bharath92/sample-runsh
+  branches:
+    exclude: 'master'
+    include: {{gitBranch}}
+
+artifactoryIntegration: art
+
+Image:
+  name: fooImage
+  sourceRepository: foo
+  dockerImageName: foo
+  autoPull: false
+
+DockerBuild:
+  name: foobuild
+  dockerImageName: foo
+  dockerFileName: foo
+  dockerFileLocation: '.'
+  dockerImageTag: ${run_number}
+
+Pipeline:
+  name: foo
+
+DockerPush:
+  name: foopush
+  targetRepository: foo
+
+BuildInfo:
+  autoPublishBuildInfo: true
+  name: fooBuildInfo
