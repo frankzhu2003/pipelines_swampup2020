@@ -1,33 +1,32 @@
 GitRepo:
-  name: fooGitRepo
-  gitProvider: github
-  path: bharath92/sample-runsh
+  name: myGitRepo
+  gitProvider: frankzhu2003Github
+  path: frankzhu2003/pipelines_swampup2020
   branches:
-    exclude: 'master'
-    include: {{gitBranch}}
+    include: templates
 
-artifactoryIntegration: art
+artifactoryIntegration: etrainingArtifactory
 
 Image:
-  name: fooImage
-  sourceRepository: foo
-  dockerImageName: foo
-  autoPull: false
+  name: DockerAppImage
+  sourceRepository: docker
+  dockerImageName: etrainning.jfrog.io/docker/swampup_docker_app_demo
+  autoPull: true
 
 DockerBuild:
-  name: foobuild
-  dockerImageName: foo
-  dockerFileName: foo
+  name: bld_docker_app
+  dockerImageName: etrainning.jfrog.io/docker/swampup_docker_app_demo
+  dockerFileName: Dockerfile
   dockerFileLocation: '.'
   dockerImageTag: ${run_number}
 
 Pipeline:
-  name: foo
+  name: docker-build-push
 
 DockerPush:
-  name: foopush
-  targetRepository: foo
+  name: push_docker_app
+  targetRepository: docker-local
 
 BuildInfo:
   autoPublishBuildInfo: true
-  name: fooBuildInfo
+  name: myBuildInfo
