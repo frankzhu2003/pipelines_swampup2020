@@ -21,7 +21,7 @@ DockerBuild:
   dockerImageTag: ${run_number}
 
 Pipeline:
-  name: docker-build-push
+  name: docker_build_push
 
 DockerPush:
   name: push_docker_app
