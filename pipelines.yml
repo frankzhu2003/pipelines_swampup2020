@@ -1,26 +1,3 @@
-resources:
-  - name: myGitRepo
-    type: GitRepo
-    configuration:
-      gitProvider: frankzhu2003Github
-      path: frankzhu2003/pipelines_swampup2020
-      branches:
-        include: templates
-  - name: DockerAppImage
-    type: Image
-    configuration:
-      registry: etrainingArtifactory
-      sourceRepository: docker
-      imageName: etrainning.jfrog.io/docker/swampup_docker_app_demo
-      imageTag: '${run_number}'
-      autoPull: true
-  - name: myBuildInfo
-    type: BuildInfo
-    configuration:
-      sourceArtifactory: etrainingArtifactory
-      buildName: SampleApp
-      buildNumber: 1
-
 
 pipelines:
   - name: swampup_docker_app_pipeline
