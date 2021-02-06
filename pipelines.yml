@@ -11,7 +11,7 @@ resources:
     configuration:
       registry: etrainingArtifactory
       sourceRepository: docker
-      imageName: art.local/docker/swampup_docker_app_demo
+      imageName: 10.178.0.7/docker/swampup_docker_app_demo
       imageTag: '${run_number}'
       autoPull: true
   - name: myBuildInfo
@@ -91,7 +91,7 @@ pipelines:
           affinityGroup: fmkGroup
           dockerFileLocation: .
           dockerFileName: Dockerfile
-          dockerImageName: ${ArtIP}/docker/swampup_docker_app_demo
+          dockerImageName: 10.178.0.7/docker/swampup_docker_app_demo
           dockerImageTag: '${run_number}'
           integrations:
             - name: etrainingArtifactory
@@ -105,7 +105,7 @@ pipelines:
             - name: publish_frontend #bld_frontend
         execution:
           onStart:
-            - sed -i "s/docker.artifactory/art.local/" $res_myGitRepo_resourcePath/Dockerfile
+            - sed -i "s/docker.artifactory/10.178.0.7/" $res_myGitRepo_resourcePath/Dockerfile
             - sed -i "s/frontend-3.0.0/frontend-$previous_frontend_ver/g" $res_myGitRepo_resourcePath/Dockerfile
             - sed -i "s/1.0.0/$previous_backend_ver/g" $res_myGitRepo_resourcePath/Dockerfile
           onComplete:
