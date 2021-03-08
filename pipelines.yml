@@ -11,7 +11,7 @@ resources:
     configuration:
       registry: etrainingArtifactory
       sourceRepository: docker
-      imageName: 10.178.0.17/docker/swampup_docker_app_demo
+      imageName: 10.178.0.17:80/docker/swampup_docker_app_demo
       imageTag: '${run_number}'
       autoPull: true
   - name: myBuildInfo
@@ -91,7 +91,7 @@ pipelines:
           affinityGroup: fmkGroup
           dockerFileLocation: .
           dockerFileName: Dockerfile
-          dockerImageName: 10.178.0.17/docker/swampup_docker_app_demo
+          dockerImageName: 10.178.0.17:80/docker/swampup_docker_app_demo
           dockerImageTag: '${run_number}'
           integrations:
             - name: etrainingArtifactory
@@ -115,7 +115,7 @@ pipelines:
         type: DockerPush
         configuration:
           affinityGroup: fmkGroup
-          targetRepository: http://10.178.0.17/docker-local
+          targetRepository: docker-local
           forceXrayScan: true
           autoPublishBuildInfo: true
           integrations:
