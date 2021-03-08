@@ -14,9 +14,9 @@ WORKDIR /app
 MAINTAINER Shani Levy
 
 # Download artifacts from Artifactory
-RUN wget http://10.178.0.7/artifactory/libs-release-local/com/jfrog/backend/1.0.0/backend-1.0.0.jar
+RUN wget http://10.178.0.17/artifactory/libs-release-local/com/jfrog/backend/1.0.0/backend-1.0.0.jar
 RUN mv ./backend-1.0.0.jar server1.jar
-RUN wget http://10.178.0.7/artifactory/npm-local/frontend/-/frontend-3.0.0.tgz
+RUN wget http://10.178.0.17/artifactory/npm-local/frontend/-/frontend-3.0.0.tgz
 RUN mv ./frontend-3.0.0.tgz client1.tgz
 
 #Extract vue app
